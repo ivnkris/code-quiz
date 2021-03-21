@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1.5%;
+}
+
+main {
+  position: relative;
+  height: 80vh;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+p {
+  max-width: 600px;
+  padding: 1.5%;
+}
+
+button {
+  padding: 15px;
+  font-weight: bold;
+  background-color: rgb(10, 88, 10);
+  color: #ffffff;
+  border: none;
+  border-radius: 5%;
+}
