@@ -93,6 +93,8 @@ const presentQuestions = () => {
 
       const incorrectButton = document.getElementById(targetId);
       incorrectButton.style.backgroundColor = "lightcoral";
+
+      timer -= 10;
     }
     const answerTimer = setTimeout(timeOutCallback, 1000);
   };
