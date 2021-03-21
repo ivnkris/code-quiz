@@ -66,6 +66,7 @@ const removeStartContainer = () => {
 const presentQuestions = () => {
   const questionSelector = `question${questionTracker}`;
 
+  //callback function for the setTimeout timer that also calls the presentQuestions function again for the next question
   const timeOutCallback = () => {
     questionTracker += 1;
     mainElement.children[0].remove();
@@ -73,6 +74,7 @@ const presentQuestions = () => {
     presentQuestions();
   };
 
+  //function to show the right and wrong answer and add delay between questions
   const answerLogic = (event) => {
     const targetId = event.target.id;
 
@@ -124,7 +126,7 @@ const presentQuestions = () => {
     questionDiv.appendChild(questionButton4);
     questionButton4.setAttribute("id", "button-4");
 
-    //event listener to create answer logic
+    //event listener with answer logic
     questionButton1.addEventListener("click", answerLogic);
     questionButton2.addEventListener("click", answerLogic);
     questionButton3.addEventListener("click", answerLogic);
@@ -137,7 +139,7 @@ const gameOver = () => {
   alert("BOOM");
 };
 
-//controls the game's timer
+//controls the game's main timer
 const startTimer = () => {
   const timerCallback = () => {
     if (timer > 0) {
@@ -146,6 +148,7 @@ const startTimer = () => {
 
     timerElement.textContent = timer;
 
+    //if timer is zero or no more questions, the game is finished
     if (timer === 0 || questionTracker > 5) {
       score = timer;
       clearInterval(timerInterval);
@@ -158,13 +161,13 @@ const startTimer = () => {
 
 //the main game function, runs when the user clicks the "Start Quiz" button
 const startGame = () => {
-  //remove original game content
+  //remove starting game content
   removeStartContainer();
 
   //present questions
   presentQuestions();
 
-  //start the timer
+  //manage the timer
   timerElement.textContent = timer;
   startTimer();
 };
