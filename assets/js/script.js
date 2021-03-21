@@ -54,6 +54,9 @@ let timer = 5;
 //question tracker default value
 let questionTracker = 1;
 
+//default score
+let score = 0;
+
 //removes the content of the container displayed before starting the game
 const removeStartContainer = () => {
   startContainer.remove();
@@ -104,11 +107,15 @@ const startTimer = () => {
   const timerCallback = () => {
     if (timer > 0) {
       timer -= 1;
-    } else {
+    }
+
+    timerElement.textContent = timer;
+
+    if (timer === 0 || questionTracker > 5) {
+      score = timer;
       clearInterval(timerInterval);
       gameOver();
     }
-    timerElement.textContent = timer;
   };
 
   const timerInterval = setInterval(timerCallback, 1000);
@@ -119,12 +126,12 @@ const startGame = () => {
   //remove original game content
   removeStartContainer();
 
+  //present questions
+  presentQuestions();
+
   //start the timer
   timerElement.textContent = timer;
   startTimer();
-
-  //present questions
-  presentQuestions();
 };
 
 //on click of the start button, run the startGame function
