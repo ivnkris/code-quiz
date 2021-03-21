@@ -33,7 +33,25 @@ button {
 }
 
 .question-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.question-container h1 {
+  font-size: 1.5rem;
 }
 
 .question-container button {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  font-weight: normal;
+  border: 1px solid #000000;
+  border-radius: 5%;
+  max-width: 600px;
+  margin: 0.5rem;
 }
