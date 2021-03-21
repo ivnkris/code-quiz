@@ -70,8 +70,8 @@ const presentQuestions = () => {
   const timeOutCallback = () => {
     questionTracker += 1;
     mainElement.children[0].remove();
-    clearInterval(timerElement);
     presentQuestions();
+    clearInterval(timerElement);
   };
 
   //function to show the right and wrong answer and add delay between questions
@@ -136,6 +136,7 @@ const presentQuestions = () => {
 
 //ends the game and presents the score
 const gameOver = () => {
+  //create game over screen elements
   const scoreDiv = document.createElement("div");
   scoreDiv.setAttribute("class", "question-container");
   const scoreHeader = document.createElement("h1");
@@ -145,11 +146,13 @@ const gameOver = () => {
   const scoreInput = document.createElement("input");
   const scoreButton = document.createElement("button");
 
+  //add game over screen text content
   scoreHeader.textContent = "All done!";
   scoreParagraph.textContent = `Your final score is ${score}.`;
   scoreLabel.textContent = "Enter your initials:";
   scoreButton.textContent = "Submit";
 
+  //append game over screen elements onto the DOM
   mainElement.appendChild(scoreDiv);
   scoreDiv.appendChild(scoreHeader);
   scoreDiv.appendChild(scoreParagraph);
@@ -173,8 +176,8 @@ const startTimer = () => {
     //if timer is zero or no more questions, the game is finished
     if (timer === 0 || questionTracker > 5) {
       score = timer;
-      clearInterval(timerInterval);
       gameOver();
+      clearInterval(timerInterval);
     }
   };
 
