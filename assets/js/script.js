@@ -65,6 +65,7 @@ const removeStartContainer = () => {
 //renders the questions on the user's screen
 const presentQuestions = () => {
   const questionSelector = `question${questionTracker}`;
+  console.log(questionSelector);
 
   const timeOutCallback = () => {
     questionTracker += 1;
@@ -74,8 +75,9 @@ const presentQuestions = () => {
   };
 
   const answerLogic = (event) => {
+    console.log(event);
     const targetId = event.target.id;
-    console.log(targetId);
+    console.log(event.target.id);
     console.log(typeof targetId);
 
     if (targetId === questionsObject[questionSelector].correctAnswer) {
@@ -101,13 +103,9 @@ const presentQuestions = () => {
     questionDiv.setAttribute("class", "question-container");
     const questionHeader = document.createElement("h1");
     const questionButton1 = document.createElement("button");
-    questionButton1.setAttribute("id", "button-1");
     const questionButton2 = document.createElement("button");
-    questionButton1.setAttribute("id", "button-2");
     const questionButton3 = document.createElement("button");
-    questionButton1.setAttribute("id", "button-3");
     const questionButton4 = document.createElement("button");
-    questionButton1.setAttribute("id", "button-4");
 
     //set element text content
     questionHeader.textContent = questionsObject[questionSelector].question;
@@ -120,9 +118,13 @@ const presentQuestions = () => {
     mainElement.appendChild(questionDiv);
     questionDiv.appendChild(questionHeader);
     questionDiv.appendChild(questionButton1);
+    questionButton1.setAttribute("id", "button-1");
     questionDiv.appendChild(questionButton2);
+    questionButton2.setAttribute("id", "button-2");
     questionDiv.appendChild(questionButton3);
+    questionButton3.setAttribute("id", "button-3");
     questionDiv.appendChild(questionButton4);
+    questionButton4.setAttribute("id", "button-4");
 
     //event listener to create answer logic
     questionButton1.addEventListener("click", answerLogic);
@@ -134,7 +136,6 @@ const presentQuestions = () => {
 
 //ends the game and presents the score
 const gameOver = () => {
-  mainElement.children[0].remove();
   alert("BOOM");
   console.log(score);
 };
