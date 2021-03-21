@@ -3,6 +3,49 @@ const startContainer = document.getElementById("start-container");
 const mainElement = document.querySelector("main");
 const timerElement = document.getElementById("timer-element");
 
+const questionsObject = {
+  question1: {
+    question: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    correctAnswer: 1,
+  },
+  question2: {
+    question: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    correctAnswer: 1,
+  },
+  question3: {
+    question: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    correctAnswer: 1,
+  },
+  question4: {
+    question: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    correctAnswer: 1,
+  },
+  question5: {
+    question: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    correctAnswer: 1,
+  },
+};
+
 //timer default value
 let timer = 60;
 
