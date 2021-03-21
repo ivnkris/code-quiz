@@ -125,7 +125,10 @@ const presentQuestions = () => {
     questionDiv.appendChild(questionButton4);
 
     //event listener to create answer logic
-    questionDiv.addEventListener("click", answerLogic);
+    questionButton1.addEventListener("click", answerLogic);
+    questionButton2.addEventListener("click", answerLogic);
+    questionButton3.addEventListener("click", answerLogic);
+    questionButton4.addEventListener("click", answerLogic);
   }
 };
 
