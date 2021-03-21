@@ -71,6 +71,7 @@ const presentQuestions = () => {
     questionTracker += 1;
     console.log(questionTracker);
     mainElement.children[0].remove();
+    clearInterval(timerElement);
     presentQuestions();
   };
 
