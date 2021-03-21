@@ -136,7 +136,29 @@ const presentQuestions = () => {
 
 //ends the game and presents the score
 const gameOver = () => {
-  alert("BOOM");
+  const scoreDiv = document.createElement("div");
+  scoreDiv.setAttribute("class", "question-container");
+  const scoreHeader = document.createElement("h1");
+  const scoreParagraph = document.createElement("p");
+  const scoreForm = document.createElement("form");
+  const scoreLabel = document.createElement("label");
+  const scoreInput = document.createElement("input");
+  const scoreButton = document.createElement("button");
+
+  scoreHeader.textContent = "All done!";
+  scoreParagraph.textContent = `Your final score is ${score}.`;
+  scoreLabel.textContent = "Enter your initials:";
+  scoreButton.textContent = "Submit";
+
+  mainElement.appendChild(scoreDiv);
+  scoreDiv.appendChild(scoreHeader);
+  scoreDiv.appendChild(scoreParagraph);
+  scoreDiv.appendChild(scoreForm);
+  scoreForm.appendChild(scoreLabel);
+  scoreForm.appendChild(scoreInput);
+  scoreInput.setAttribute("type", "text");
+  scoreForm.appendChild(scoreButton);
+  scoreButton.setAttribute("type", "submit");
 };
 
 //controls the game's main timer
