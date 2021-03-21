@@ -5,10 +5,16 @@ const removeStartContainer = () => {
   startContainer.remove();
 };
 
+const presentQuestion = () => {
+  console.log("present question");
+};
+
 const startGame = () => {
   //remove original game content
   removeStartContainer();
+
   //present first question
+  presentQuestion();
 
   //start the timer
 };
