@@ -36,6 +36,10 @@ const presentQuestion = () => {
   questionDiv.appendChild(questionButton4);
 };
 
+const startTimer = () => {
+  console.log("start timer");
+};
+
 const startGame = () => {
   //remove original game content
   removeStartContainer();
@@ -44,6 +48,7 @@ const startGame = () => {
   presentQuestion();
 
   //start the timer
+  startTimer();
 };
 
 //on click of the start button, run the startGame function
