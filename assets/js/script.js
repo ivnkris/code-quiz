@@ -3,6 +3,7 @@ const startContainer = document.getElementById("start-container");
 const mainElement = document.querySelector("main");
 const timerElement = document.getElementById("timer-element");
 
+//questions database
 const questionsObject = {
   question1: {
     question:
@@ -50,10 +51,12 @@ const questionsObject = {
 //timer default value
 let timer = 60;
 
+//removes the content of the container displayed before starting the game
 const removeStartContainer = () => {
   startContainer.remove();
 };
 
+//renders the questions on the user's screen
 const presentQuestion = () => {
   //create new HTML elements and set attributes
   const questionDiv = document.createElement("div");
@@ -84,10 +87,12 @@ const presentQuestion = () => {
   questionDiv.appendChild(questionButton4);
 };
 
+//ends the game and presents the score
 const gameOver = () => {
   alert("BOOM");
 };
 
+//controls the game's timer
 const startTimer = () => {
   const timerCallback = () => {
     if (timer > 0) {
@@ -102,6 +107,7 @@ const startTimer = () => {
   const timerInterval = setInterval(timerCallback, 1000);
 };
 
+//the main game function, runs when the user clicks the "Start Game" button
 const startGame = () => {
   //remove original game content
   removeStartContainer();
