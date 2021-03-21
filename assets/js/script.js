@@ -1,6 +1,10 @@
 const startButton = document.getElementById("start-button");
 const startContainer = document.getElementById("start-container");
 const mainElement = document.querySelector("main");
+const timerElement = document.getElementById("timer-element");
+
+//timer default value
+let timer = 60;
 
 const removeStartContainer = () => {
   startContainer.remove();
@@ -36,8 +40,22 @@ const presentQuestion = () => {
   questionDiv.appendChild(questionButton4);
 };
 
+const gameOver = () => {
+  alert("BOOM");
+};
+
 const startTimer = () => {
-  console.log("start timer");
+  const timerCallback = () => {
+    if (timer > 0) {
+      timer -= 1;
+    } else {
+      clearInterval(timerInterval);
+      gameOver();
+    }
+    timerElement.textContent = timer;
+  };
+
+  const timerInterval = setInterval(timerCallback, 1000);
 };
 
 const startGame = () => {
@@ -48,6 +66,7 @@ const startGame = () => {
   presentQuestion();
 
   //start the timer
+  timerElement.textContent = timer;
   startTimer();
 };
 
