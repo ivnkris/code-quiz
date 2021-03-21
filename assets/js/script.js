@@ -107,7 +107,7 @@ const startTimer = () => {
   const timerInterval = setInterval(timerCallback, 1000);
 };
 
-//the main game function, runs when the user clicks the "Start Game" button
+//the main game function, runs when the user clicks the "Start Quiz" button
 const startGame = () => {
   //remove original game content
   removeStartContainer();
