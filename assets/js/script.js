@@ -2,7 +2,7 @@ const startButton = document.getElementById("start-button");
 const startContainer = document.getElementById("start-container");
 
 const removeStartContainer = () => {
-  console.log("Remove START container");
+  startContainer.remove();
 };
 
 const startGame = () => {
