@@ -65,21 +65,16 @@ const removeStartContainer = () => {
 //renders the questions on the user's screen
 const presentQuestions = () => {
   const questionSelector = `question${questionTracker}`;
-  console.log(questionSelector);
 
   const timeOutCallback = () => {
     questionTracker += 1;
-    console.log(questionTracker);
     mainElement.children[0].remove();
     clearInterval(timerElement);
     presentQuestions();
   };
 
   const answerLogic = (event) => {
-    console.log(event);
     const targetId = event.target.id;
-    console.log(event.target.id);
-    console.log(typeof targetId);
 
     if (targetId === questionsObject[questionSelector].correctAnswer) {
       const correctButton = document.getElementById(
@@ -140,7 +135,6 @@ const presentQuestions = () => {
 //ends the game and presents the score
 const gameOver = () => {
   alert("BOOM");
-  console.log(score);
 };
 
 //controls the game's timer
