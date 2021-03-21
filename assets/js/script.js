@@ -62,15 +62,20 @@ const removeStartContainer = () => {
   startContainer.remove();
 };
 
-const answerLogic = () => {
-  console.log("answer");
-};
-
 //renders the questions on the user's screen
 const presentQuestions = () => {
-  if (questionTracker <= 5) {
-    const questionSelector = `question${questionTracker}`;
+  const questionSelector = `question${questionTracker}`;
 
+  const answerLogic = (event) => {
+    console.log(event.target.id);
+    if (event.target.id === questionsObject[questionSelector].correctAnswer) {
+      console.log("correct answer");
+    } else {
+      console.log("incorrect answer");
+    }
+  };
+
+  if (questionTracker <= 5) {
     //create new HTML elements and set attributes
     const questionDiv = document.createElement("div");
     questionDiv.setAttribute("class", "question-container");
@@ -99,19 +104,16 @@ const presentQuestions = () => {
     questionDiv.appendChild(questionButton3);
     questionDiv.appendChild(questionButton4);
 
-    //event listeners to create answer logic
-    questionButton1.addEventListener("click", answerLogic);
-    questionButton2.addEventListener("click", answerLogic);
-    questionButton3.addEventListener("click", answerLogic);
-    questionButton4.addEventListener("click", answerLogic);
-  } else {
-    questionDiv.remove();
+    //event listener to create answer logic
+    questionDiv.addEventListener("click", answerLogic);
   }
 };
 
 //ends the game and presents the score
 const gameOver = () => {
+  mainElement.children[0].remove();
   alert("BOOM");
+  console.log(score);
 };
 
 //controls the game's timer
