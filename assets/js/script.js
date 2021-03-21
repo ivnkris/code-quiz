@@ -62,6 +62,10 @@ const removeStartContainer = () => {
   startContainer.remove();
 };
 
+const answerLogic = () => {
+  console.log("answer");
+};
+
 //renders the questions on the user's screen
 const presentQuestions = () => {
   if (questionTracker <= 5) {
@@ -94,6 +98,14 @@ const presentQuestions = () => {
     questionDiv.appendChild(questionButton2);
     questionDiv.appendChild(questionButton3);
     questionDiv.appendChild(questionButton4);
+
+    //event listeners to create answer logic
+    questionButton1.addEventListener("click", answerLogic);
+    questionButton2.addEventListener("click", answerLogic);
+    questionButton3.addEventListener("click", answerLogic);
+    questionButton4.addEventListener("click", answerLogic);
+  } else {
+    questionDiv.remove();
   }
 };
 
