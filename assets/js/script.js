@@ -49,7 +49,7 @@ const questionsObject = {
 };
 
 //timer default value
-let timer = 5;
+let timer = 60;
 
 //question tracker default value
 let questionTracker = 1;
@@ -66,13 +66,32 @@ const removeStartContainer = () => {
 const presentQuestions = () => {
   const questionSelector = `question${questionTracker}`;
 
+  const timeOutCallback = () => {
+    questionTracker += 1;
+  };
+
   const answerLogic = (event) => {
-    console.log(event.target.id);
-    if (event.target.id === questionsObject[questionSelector].correctAnswer) {
-      console.log("correct answer");
+    const targetId = event.target.id;
+    console.log(targetId);
+    console.log(typeof targetId);
+
+    if (targetId === questionsObject[questionSelector].correctAnswer) {
+      const correctButton = document.getElementById(
+        questionsObject[questionSelector].correctAnswer
+      );
+      correctButton.style.backgroundColor = "lightgreen";
     } else {
-      console.log("incorrect answer");
+      const correctButton = document.getElementById(
+        questionsObject[questionSelector].correctAnswer
+      );
+      correctButton.style.backgroundColor = "lightgreen";
+
+      const incorrectButton = document.getElementById(targetId);
+      incorrectButton.style.backgroundColor = "lightcoral";
     }
+    const answerTimer = setTimeout(timeOutCallback, 2000);
+    clearTimeout(answerTimer);
+    presentQuestions();
   };
 
   if (questionTracker <= 5) {
