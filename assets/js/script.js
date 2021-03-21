@@ -68,6 +68,9 @@ const presentQuestions = () => {
 
   const timeOutCallback = () => {
     questionTracker += 1;
+    console.log(questionTracker);
+    mainElement.children[0].remove();
+    presentQuestions();
   };
 
   const answerLogic = (event) => {
@@ -89,9 +92,7 @@ const presentQuestions = () => {
       const incorrectButton = document.getElementById(targetId);
       incorrectButton.style.backgroundColor = "lightcoral";
     }
-    const answerTimer = setTimeout(timeOutCallback, 2000);
-    clearTimeout(answerTimer);
-    presentQuestions();
+    const answerTimer = setTimeout(timeOutCallback, 1000);
   };
 
   if (questionTracker <= 5) {
