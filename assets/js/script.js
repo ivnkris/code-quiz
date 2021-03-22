@@ -172,9 +172,15 @@ const gameOver = () => {
     event.preventDefault();
 
     const currentHighScore = localStorage.getItem("score");
+
+    currentHighScore = parseInt(currentHighScore);
+
+    if (score > currentHighScore) {
+      localStorage.setItem("score", score);
+    }
   };
 
-  scoreButton.addEventListener("click", submitForm);
+  submitButtonContent.addEventListener("click", submitForm);
 };
 
 //controls the game's main timer
