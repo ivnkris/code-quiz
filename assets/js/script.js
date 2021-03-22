@@ -136,6 +136,8 @@ const presentQuestions = () => {
 
 //ends the game and presents the score
 const gameOver = () => {
+  timerElement.remove();
+
   //create game over screen elements
   const scoreDiv = document.createElement("div");
   scoreDiv.setAttribute("class", "question-container");
@@ -149,7 +151,7 @@ const gameOver = () => {
   //add game over screen text content
   scoreHeader.textContent = "All done!";
   scoreParagraph.textContent = `Your final score is ${score}.`;
-  scoreLabel.textContent = "Enter your initials:";
+  scoreLabel.textContent = "Enter your name: ";
   scoreButton.textContent = "Submit";
 
   //append game over screen elements onto the DOM
