@@ -171,6 +171,7 @@ const gameOver = () => {
     event.preventDefault();
     const scoreInputContent = document.getElementById("score-input").value;
 
+    //record the initials and score in local storage if no existing value stored
     let currentHighScore = localStorage.getItem("score");
     if (currentHighScore === null) {
       localStorage.setItem("initials", scoreInputContent);
@@ -178,11 +179,15 @@ const gameOver = () => {
     } else {
       currentHighScore = parseInt(currentHighScore);
 
+      //record the initials and score in local storage if score is higher than current value stored
       if (score > currentHighScore) {
         localStorage.setItem("initials", scoreInputContent);
         localStorage.setItem("score", score);
       }
     }
+
+    //navigate to the highscores page
+    window.location.href = "./highscores.html";
   };
 
   submitButtonContent.addEventListener("click", submitForm);
@@ -220,6 +225,21 @@ const startGame = () => {
   timerElement.textContent = timer;
   startTimer();
 };
+
+//show highscores on highscores page
+const showHighScores = () => {
+  const highscoresContainer = document.getElementById("highscores-container");
+
+  const highscoresDiv = document.createElement("div");
+
+  const highscoreName = localStorage.getItem("initials");
+  const highscoreScore = localStorage.getItem("score");
+
+  highscoresDiv.textContent = `The current highscore holder is ${highscoreName}, with a score of ${highscoreScore}!`;
+  highscoresContainer.appendChild(highscoresDiv);
+};
+
+showHighScores();
 
 //on click of the start button, run the startGame function
 startButton.addEventListener("click", startGame);
