@@ -13,12 +13,15 @@ const showHighScores = () => {
     highscoresDiv.textContent = `The current highscore holder is ${highscoreName}, with a score of ${highscoreScore}!`;
   }
   highscoresContainer.appendChild(highscoresDiv);
+  highscoresDiv.setAttribute("id", "highscores-div");
 };
 
 showHighScores();
 
+//clears local storage when "clear highscores" button is clicked
 const clearHighScores = () => {
-  highscoresContainer.children[0].remove();
+  document.getElementById("highscores-div").remove();
+  localStorage.clear();
 };
 
 clearHighScoresButton.addEventListener("click", clearHighScores);
