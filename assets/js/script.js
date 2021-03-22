@@ -49,7 +49,7 @@ const questionsObject = {
 };
 
 //timer default value
-let timer = 60;
+let timer = 90;
 
 //question tracker default value
 let questionTracker = 1;
@@ -69,7 +69,9 @@ const presentQuestions = () => {
   //callback function for the setTimeout timer that also calls the presentQuestions function again for the next question
   const timeOutCallback = () => {
     questionTracker += 1;
-    mainElement.children[0].remove();
+    if (questionTracker < 6) {
+      mainElement.children[0].remove();
+    }
     presentQuestions();
     clearInterval(timerElement);
   };
@@ -137,6 +139,7 @@ const presentQuestions = () => {
 //ends the game and presents the score
 const gameOver = () => {
   timerElement.remove();
+  mainElement.children[0].remove();
 
   //create game over screen elements
   const scoreDiv = document.createElement("div");
