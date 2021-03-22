@@ -165,12 +165,11 @@ const gameOver = () => {
   scoreButton.setAttribute("type", "submit");
   scoreButton.setAttribute("id", "score-button");
 
-  const scoreInputContent = document.getElementById("score-input");
   const submitButtonContent = document.getElementById("score-button");
-  console.log(scoreInputContent);
 
   const submitForm = (event) => {
     event.preventDefault();
+    const scoreInputContent = document.getElementById("score-input").value;
 
     let currentHighScore = localStorage.getItem("score");
     if (currentHighScore === null) {
