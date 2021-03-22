@@ -55,3 +55,13 @@ button {
   max-width: 600px;
   margin: 0.5rem;
 }
+
+.highscores-button-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.highscores-button-container button {
+  color: #ffffff;
+  background-color: rgb(82, 23, 190);
+}
