@@ -167,16 +167,22 @@ const gameOver = () => {
 
   const scoreInputContent = document.getElementById("score-input");
   const submitButtonContent = document.getElementById("score-button");
+  console.log(scoreInputContent);
 
   const submitForm = (event) => {
     event.preventDefault();
 
-    const currentHighScore = localStorage.getItem("score");
-
-    currentHighScore = parseInt(currentHighScore);
-
-    if (score > currentHighScore) {
+    let currentHighScore = localStorage.getItem("score");
+    if (currentHighScore === null) {
+      localStorage.setItem("initials", scoreInputContent);
       localStorage.setItem("score", score);
+    } else {
+      currentHighScore = parseInt(currentHighScore);
+
+      if (score > currentHighScore) {
+        localStorage.setItem("initials", scoreInputContent);
+        localStorage.setItem("score", score);
+      }
     }
   };
 
@@ -186,18 +192,18 @@ const gameOver = () => {
 //controls the game's main timer
 const startTimer = () => {
   const timerCallback = () => {
-    if (timer > 0) {
-      timer -= 1;
-    }
-
-    timerElement.textContent = timer;
-
     //if timer is zero or no more questions, the game is finished
     if (timer === 0 || questionTracker > 5) {
       score = timer;
       gameOver();
       clearInterval(timerInterval);
     }
+
+    if (timer > 0) {
+      timer -= 1;
+    }
+
+    timerElement.textContent = timer;
   };
 
   const timerInterval = setInterval(timerCallback, 1000);
