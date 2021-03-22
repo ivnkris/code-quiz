@@ -160,8 +160,17 @@ const gameOver = () => {
   scoreForm.appendChild(scoreLabel);
   scoreForm.appendChild(scoreInput);
   scoreInput.setAttribute("type", "text");
+  scoreInput.setAttribute("id", "score-input");
   scoreForm.appendChild(scoreButton);
   scoreButton.setAttribute("type", "submit");
+  scoreButton.setAttribute("id", "score-button");
+
+  const scoreInputContent = document.getElementById("score-input");
+  const submitButtonContent = document.getElementById("score-button");
+
+  const submitForm = () => {};
+
+  scoreButton.addEventListener("click", submitForm);
 };
 
 //controls the game's main timer
