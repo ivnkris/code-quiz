@@ -168,7 +168,11 @@ const gameOver = () => {
   const scoreInputContent = document.getElementById("score-input");
   const submitButtonContent = document.getElementById("score-button");
 
-  const submitForm = () => {};
+  const submitForm = (event) => {
+    event.preventDefault();
+
+    const currentHighScore = localStorage.getItem("score");
+  };
 
   scoreButton.addEventListener("click", submitForm);
 };
