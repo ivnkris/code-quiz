@@ -79,19 +79,15 @@ const presentQuestions = () => {
   //function to show the right and wrong answer and add delay between questions
   const answerLogic = (event) => {
     const targetId = event.target.id;
+    const correctAnswer = questionsObject[questionSelector].correctAnswer;
 
-    if (targetId === questionsObject[questionSelector].correctAnswer) {
-      const correctButton = document.getElementById(
-        questionsObject[questionSelector].correctAnswer
-      );
+    const correctButton = document.getElementById(correctAnswer);
+    const incorrectButton = document.getElementById(targetId);
+
+    if (targetId === correctAnswer) {
       correctButton.style.backgroundColor = "lightgreen";
     } else {
-      const correctButton = document.getElementById(
-        questionsObject[questionSelector].correctAnswer
-      );
       correctButton.style.backgroundColor = "lightgreen";
-
-      const incorrectButton = document.getElementById(targetId);
       incorrectButton.style.backgroundColor = "lightcoral";
 
       if (timer > 10) {
