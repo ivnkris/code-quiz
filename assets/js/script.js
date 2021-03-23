@@ -94,7 +94,11 @@ const presentQuestions = () => {
       const incorrectButton = document.getElementById(targetId);
       incorrectButton.style.backgroundColor = "lightcoral";
 
-      timer -= 10;
+      if (timer > 10) {
+        timer -= 10;
+      } else {
+        timer = 1;
+      }
     }
     const answerTimer = setTimeout(timeOutCallback, 1000);
   };
