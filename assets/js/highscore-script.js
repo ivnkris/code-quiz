@@ -20,7 +20,9 @@ showHighScores();
 
 //clears local storage when "clear highscores" button is clicked
 const clearHighScores = () => {
-  document.getElementById("highscores-div").remove();
+  if (document.getElementById("highscores-div")) {
+    document.getElementById("highscores-div").remove();
+  }
   localStorage.clear();
 };
 
